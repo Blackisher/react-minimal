@@ -11,6 +11,9 @@ const MyApp = () => (
     <h2>GenerateRandomArray for 5 ==> {generateRandomArray(5)}</h2>
     <h2>Task 4.Declare const containing array: [2, 56, 23, 88, 17, 4]. Print all array elements that are larger than 15.</h2>
     <p>{printLargerThen(myArrayForTask4,15)}</p>
+    <h2>Task 5.Declare const containing array: [2, 5, 8, 10]. Create method that returns an array with the square root values of each number.</h2>
+    <p>{printSquareRoots(myArrayForTask5).toString()}</p>
+
   </>
 )
 
@@ -26,6 +29,12 @@ const myArrayForTask4 = [2, 56, 23, 88, 17, 4]
 
 const printLargerThen = (A,n) => {
     return (Array.from(A, (v) => v > n ? v + " " : ""));
+}
+
+const myArrayForTask5 = [2, 5, 8, 10]
+
+const printSquareRoots = (A) => {
+    return Array.from(A, (v) => Math.sqrt(v));
 }
 
 export default MyApp
