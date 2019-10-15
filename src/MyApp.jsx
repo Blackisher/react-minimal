@@ -9,6 +9,8 @@ const MyApp = () => (
     <AppTitle />
     <h2>GenerateArray for 20 ==> {generateArray(20)}</h2>
     <h2>GenerateRandomArray for 5 ==> {generateRandomArray(5)}</h2>
+    <h2>Task 4.Declare const containing array: [2, 56, 23, 88, 17, 4]. Print all array elements that are larger than 15.</h2>
+    <p>{printLargerThen(myArrayForTask4,15)}</p>
   </>
 )
 
@@ -18,6 +20,12 @@ const generateArray = (n) => {
 
 const generateRandomArray = (n) => {
     return "[" + (Array.from(Array(n).keys(), (v) => Math.floor(1+Math.random()*25))) +"]";
+}
+
+const myArrayForTask4 = [2, 56, 23, 88, 17, 4]
+
+const printLargerThen = (A,n) => {
+    return (Array.from(A, (v) => v > n ? v + " " : ""));
 }
 
 export default MyApp
