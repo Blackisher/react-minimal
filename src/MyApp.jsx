@@ -2,6 +2,66 @@ import React from 'react'
 import AppTitle from './AppTitle'
 import {render} from "react-dom";
 
+const data = [
+    {
+        "teacherName": "Jan Nowak",
+        "teacherAge": 36,
+        "active": true,
+        "students": [
+            {
+                "name": "Maciej Janosz",
+                "age": 12
+            },
+            {
+                "name": "Wojciech Kowalski",
+                "age": 15
+            },
+            {
+                "name": "Wioletta PoznaĹska",
+                "age": 1000000
+            }
+        ]
+    },
+    {
+        "teacherName": "Mariusz Flasinski",
+        "teacherAge": 56,
+        "active": true,
+        "students": [
+            {
+                "name": "Jan Kot",
+                "age": 12
+            },
+            {
+                "name": "Jan Ziobro",
+                "age": 15
+            },
+            {
+                "name": "Adam Malysz",
+                "age": 41
+            }
+        ]
+    },
+    {
+        "teacherName": "Wojciech Kuzak",
+        "teacherAge": 44,
+        "active": false,
+        "students": [
+            {
+                "name": "Janina Wronska",
+                "age": 22
+            },
+            {
+                "name": "John Dover",
+                "age": 7
+            },
+            {
+                "name": "Emil Petterson",
+                "age": 46
+            }
+        ]
+    }
+]
+
 const MyApp = () => (
   <>
     <h1>Minimal React blackisher</h1>
@@ -13,6 +73,7 @@ const MyApp = () => (
     <p>{printLargerThen(myArrayForTask4,15)}</p>
     <h2>Task 5.Declare const containing array: [2, 5, 8, 10]. Create method that returns an array with the square root values of each number.</h2>
     <p>{printSquareRoots(myArrayForTask5).toString()}</p>
+    <h3>Task 6. Download and copy the JSON provided here into a variable called “data” in the App.js file.</h3>
 
   </>
 )
@@ -36,5 +97,8 @@ const myArrayForTask5 = [2, 5, 8, 10]
 const printSquareRoots = (A) => {
     return Array.from(A, (v) => Math.sqrt(v));
 }
+
+
+
 
 export default MyApp
