@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 class SelectControl extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            a: 0,
-            b: 1,
+            a: 5,
+            b: 9,
             c: 2,
             output: '',
             original: [
@@ -73,6 +73,7 @@ class SelectControl extends React.Component {
         this.handleClickOlderAndActiveTeachers = this.handleClickOlderAndActiveTeachers.bind(this);
         this.handleOnChangeA = this.handleOnChangeA.bind(this);
         this.handleOnChangeB = this.handleOnChangeB.bind(this);
+        this.generateArray = this.generateArray.bind(this);
 
     }
 
@@ -176,6 +177,14 @@ class SelectControl extends React.Component {
         }
     }
 
+    generateArray(a, b) {
+        if (parseInt(a) > 0 && parseInt(b) > parseInt(a)) {
+            return Array.from(Array(b - a - 1).keys(), v => v+parseInt(a)+1)
+        } else {
+            return [];
+        }
+    }
+
     render() {
         return (
             <div>
@@ -203,6 +212,13 @@ class SelectControl extends React.Component {
                 In addition those fields (a,b,c) don't accept "e" and dot.
                 <br/>
 
+                <h4>Lab2Ex2 Input numbers and use the generateArray method from the previous Labs (a bit modified) to
+                    dynamically generate an array between the numbers a and b and display it under the inputs. The array
+                    is displayed every time the value of a and b changes but only if a &lt; b and a &gt; 0. If that is
+                    not the
+                    case the array is not displayed (and any previous array disappears).</h4>
+                Array of numbers between a, b displayed here
+                --> {this.generateArray(this.state.a, this.state.b).map(x => x + " ")}
             </div>
         );
     }
