@@ -7,6 +7,7 @@ class SelectControl extends React.Component {
             a: 5,
             b: 9,
             c: 2,
+            numberOfTimes: 0,
             output: '',
             original: [
                 {
@@ -186,7 +187,11 @@ class SelectControl extends React.Component {
     }
 
     render() {
+        {
+        this.state.numberOfTimes = this.state.numberOfTimes + 1}
+        console.time("render – " + this.state.numberOfTimes + " – ");
         return (
+        <>
             <div>
                 TASK 7 --> {this.state.output}
                 <br/>
@@ -219,7 +224,14 @@ class SelectControl extends React.Component {
                     case the array is not displayed (and any previous array disappears).</h4>
                 Array of numbers between a, b displayed here
                 --> {this.generateArray(this.state.a, this.state.b).map(x => x + " ")}
+
+                <h4>Lab2Ex3 Use console.time to measure the time the render method takes to execute. Log in the
+                    console the rendering time in milliseconds and the count of renders since the first page load. The
+                    console should look like:
+                    “render – 1 – 123ms” then “render – 2 – 342ms”, etc.</h4>
             </div>
+            {console.timeEnd("render – " + this.state.numberOfTimes + " – ")}
+        </>
         );
     }
 }
