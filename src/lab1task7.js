@@ -4,9 +4,10 @@ class SelectControl extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            a: 5,
-            b: 9,
+            a: 3,
+            b: 10,
             c: 2,
+            squareRoots: [],
             numberOfTimes: 0,
             output: '',
             original: [
@@ -75,6 +76,7 @@ class SelectControl extends React.Component {
         this.handleOnChangeA = this.handleOnChangeA.bind(this);
         this.handleOnChangeB = this.handleOnChangeB.bind(this);
         this.generateArray = this.generateArray.bind(this);
+        this.handleSquareRoots = this.handleSquareRoots.bind(this);
 
     }
 
@@ -186,6 +188,12 @@ class SelectControl extends React.Component {
         }
     }
 
+    handleSquareRoots(){
+        this.setState({
+            squareRoots: Array.from(this.generateArray(this.state.a, this.state.b), (v) => Math.sqrt(v)).map(x => x + " ")
+        });
+    }
+
     render() {
         {
         this.state.numberOfTimes = this.state.numberOfTimes + 1}
@@ -229,6 +237,15 @@ class SelectControl extends React.Component {
                     console the rendering time in milliseconds and the count of renders since the first page load. The
                     console should look like:
                     “render – 1 – 123ms” then “render – 2 – 342ms”, etc.</h4>
+
+                <h4>Lab2Ex4 Add a button below the displayed array with text “Process array”. When
+                    clicking on the button show the result of the filter method from Lab 1 exercise 5 (square values).
+                    Be sure to optimise computations so the render method does not take too long. See how much render
+                    takes from your console logs when the computation is in the method and when it is done only once
+                    upon button click.</h4>
+                <input type="button" onClick={this.handleSquareRoots} value="Process array"/>
+                <br/>
+                square values --> {this.state.squareRoots}
             </div>
             {console.timeEnd("render – " + this.state.numberOfTimes + " – ")}
         </>
